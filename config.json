@@ -13,16 +13,13 @@
   "isBoard": false,
   "id": "BaseDeploy",
   "platform": ["win","mac","web","linux"],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "asset": {
 	"python": {
       "dir": "python/",
       "main": "main.ts",
       "dependencies": {
-        "gradio":"",
-        "fastapi":"",
-        "siot":"",
-        "pywebio":""
+        "BaseDeploy":""
         }
     }
   }
