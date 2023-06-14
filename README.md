@@ -22,7 +22,7 @@
 
 ## 简介
 使用Mind+V1.7.2及以上版本，在python模式用户库中加载此扩展，AI模型部署工具库。
-[参考教程](https://github.com/KerwinKai/XEdu-docs/blob/master/source/basedeploy/introduction.md)
+[BaseDeploy说明1](https://github.com/KerwinKai/XEdu-docs/blob/master/source/basedeploy/introduction.md)  [BaseDeploy说明2](https://xedu.readthedocs.io/zh/master/basedeploy.html)
 
 ## 积木列表
 
