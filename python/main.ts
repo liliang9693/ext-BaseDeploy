@@ -47,6 +47,35 @@ namespace BaseDeploy{
         }
 
 
+    //% block="在图像[IMG]上绘制文字[TEXT] 颜色[COLOR] 坐标X[X]Y[Y]" blockType="command"
+    //% IMG.shadow="normal" IMG.defl="grab"
+    //% TEXT.shadow="string" TEXT.defl="id1"
+    //% COLOR.shadow="colorPalette" 
+    //% X.shadow="number"   X.defl="10"
+    //% Y.shadow="number"   Y.defl="20"
+    export function drawText(parameter: any, block: any) {
+        let img=parameter.IMG.code;
+        let txt=parameter.TEXT.code;
+        let color=parameter.COLOR.code;
+        let x=parameter.X.code;
+        let y=parameter.Y.code;
+
+        var r = 0;
+        var g = 0;
+        var b = 0;
+        try {
+            if ( color.length == 8 ) {//分别截取RGB值然后转换为数字值
+                r = parseInt(color.substring(2, 4), 16);
+                g = parseInt(color.substring(4, 6), 16);
+                b = parseInt(color.substring(6, 8), 16);
+            }
+        } catch(e) {
+            return '';
+        }
+ 
+        Generator.addCode(`cv2.putText(${img}, str(${txt}), (${x}, ${y}), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (${b}, ${g}, ${r}), 2)`)     
+    }
+
 
 
     function replaceQuotationMarks(str:string){
