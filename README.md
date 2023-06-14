@@ -54,7 +54,7 @@
 
 将onnx模型文件拖到**项目中的文件**中。
 
-例如本仓库有一个cls.onnx文件，是一个一千分类的模型。
+例如本仓库有一个cls.onnx文件，是一个千分类的物体识别模型。
 
 ![image-20230614173254643](README.assets/image-20230614173254643.png)
 
@@ -74,7 +74,7 @@
 
 MIT
 
-## 支持情况
+## 测试情况
 
 MCU                | JavaScript    | Arduino   | MicroPython    | Python 
 ------------------ | :----------: | :----------: | :---------: | -----
@@ -82,7 +82,7 @@ arduino        |             |              |             |
 micro:bit        |             |              |             | 
 esp32        |             |              |             | 
 unihiker        |             |              |             | 
-windows        |             |              |             | 
+windows        |             |              |             | √
 mac        |             |              |             | 
 
 ## 更新日志
