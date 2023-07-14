@@ -14,7 +14,7 @@ namespace BaseDeploy{
         Generator.addCode(`model = bd(${path})`)
     }
 
-    //% block="调用模型识别图片[IMG]" blockType="command"
+    //% block="调用模型识别图片[IMG] 存入推理结果" blockType="command"
     //% IMG.shadow="string" IMG.defl="test.png"
     export function inference(parameter: any, block: any) {
         let img=parameter.IMG.code;
@@ -22,29 +22,35 @@ namespace BaseDeploy{
         Generator.addCode(`bd_result = model.inference(${img})`)
     }
 
-    //% block="从 分类任务 识别结果中获取[CFRESULT]" blockType="reporter"
+    //% block="获取推理结果原始数据" blockType="reporter"
+    export function getResult(parameter: any, block: any) {
+
+        Generator.addCode(`bd_result`)
+    }
+
+    //% block="将【分类任务】识别结果格式化，取[CFRESULT]" blockType="reporter"
     //% CFRESULT.shadow="dropdown" CFRESULT.options="CFRESULT"
     export function getClassificationResult(parameter: any, block: any) {
         let result=parameter.CFRESULT.code;
         //console.log(result)
         if(result=="所有结果"){
-            Generator.addCode(`bd_result`)
+            Generator.addCode(`model.print_result(bd_result)`)
         }else{
-            Generator.addCode(`bd_result['${result}']`)
+            Generator.addCode(`model.print_result(bd_result)['${result}']`)
         }
         
     }
 
-    //% block="从 检测任务 识别结果中获取第[INDEX]个[DERESULT]" blockType="reporter"
+    //% block="将【检测任务识别结果进行格式化，取第[INDEX]个[DERESULT]" blockType="reporter"
     //% INDEX.shadow="number" INDEX.defl="0"
     //% DERESULT.shadow="dropdown" DERESULT.options="DERESULT"
     export function getDetectionResult(parameter: any, block: any) {
         let index=parameter.INDEX.code;
         let result=parameter.DERESULT.code;
         if(result=="所有结果"){
-            Generator.addCode(`bd_result`)
+            Generator.addCode(`model.print_result(bd_result)`)
         }else{
-            Generator.addCode(`bd_result[${index}]['${result}']`)
+            Generator.addCode(`model.print_result(bd_result)[${index}]['${result}']`)
         }
 
         

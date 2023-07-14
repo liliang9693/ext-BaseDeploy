@@ -13,13 +13,13 @@
   "isBoard": false,
   "id": "BaseDeploy",
   "platform": ["win","mac","web","linux"],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "asset": {
 	"python": {
       "dir": "python/",
       "main": "main.ts",
       "dependencies": {
-        "BaseDeploy":"0.0.2"
+        "BaseDeploy":"0.0.4"
         }
     }
   }
